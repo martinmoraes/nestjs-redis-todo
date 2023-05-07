@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "da93ed8f-e4ec-4da7-a59f-3e303fd8be47",
-		"name": "todo",
+		"name": "todo-string",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "2807310"
 	},
@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"1\",\r\n    \"title\": \"Vender casa\",\r\n    \"description\": \"Divulgar a venda da nova casa\"\r\n}",
+					"raw": "{\r\n    \"id\": \"3\",\r\n    \"title\": \"comprar casa\",\r\n    \"description\": \"Divulgar a compra da nova casa\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -21,12 +21,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/todo",
+					"raw": "{{URL}}/todo-string",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
-						"todo"
+						"todo-string"
 					]
 				}
 			},
@@ -38,13 +38,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/todo/2",
+					"raw": "{{URL}}/todo-string/1",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
-						"todo",
-						"2"
+						"todo-string",
+						"1"
 					]
 				}
 			},
@@ -65,13 +65,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/todo/1",
+					"raw": "{{URL}}/todo-string/2",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
-						"todo",
-						"1"
+						"todo-string",
+						"2"
 					]
 				}
 			},
@@ -83,12 +83,12 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/todo/1",
+					"raw": "{{URL}}/todo-string/1",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
-						"todo",
+						"todo-string",
 						"1"
 					]
 				}

@@ -1,12 +1,15 @@
-import { CACHE_MANAGER, Inject, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  CACHE_MANAGER,
+  Inject,
+  Injectable,
+} from '@nestjs/common';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
 import { Cache } from 'cache-manager';
-import { TodoDto } from './dto/todo.dto';
-import { format } from 'path';
 
 @Injectable()
-export class TodoService {
+export class TodoStringService {
   constructor(@Inject(CACHE_MANAGER) private cacheManager: Cache) {}
 
   async create(createTodoDto: CreateTodoDto) {
@@ -41,12 +44,16 @@ export class TodoService {
     const tudoResulted = await this.cacheManager.get(id);
     return {
       id,
-      tudoResulted,
+      tudoResulted: tudoResulted ?? false,
     };
   }
 
   async update(id: number, updateTodoDto: UpdateTodoDto) {
     const tudoResulted = await this.cacheManager.get(id);
+
+    if (!tudoResulted) {
+      throw new BadRequestException(`Usuário ${id} não encontrado.`);
+    }
 
     for (const todoProperty in updateTodoDto) {
       tudoResulted[todoProperty] = updateTodoDto[todoProperty];

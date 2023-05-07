@@ -8,13 +8,13 @@ import {
   Delete,
   ParseIntPipe,
 } from '@nestjs/common';
-import { TodoService } from './todo.service';
+import { TodoStringService } from './todo-string.service';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
 
-@Controller('todo')
-export class TodoController {
-  constructor(private readonly todoService: TodoService) {}
+@Controller('todo-list')
+export class TodoStringController {
+  constructor(private readonly todoService: TodoStringService) {}
 
   @Post()
   create(@Body() createTodoDto: CreateTodoDto) {
